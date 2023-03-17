@@ -3,9 +3,11 @@ import 'package:flutter_shake_animated/flutter_shake_animated.dart';
 import 'package:provider/provider.dart';
 
 import 'package:shimmer_effect/repo/network_api.dart';
+import 'package:shimmer_effect/screens/circular_progress_screen.dart';
 import 'package:shimmer_effect/screens/cp_background_screen.dart';
 import 'package:shimmer_effect/screens/custom_painter_screen.dart';
 import 'package:shimmer_effect/screens/product_screen.dart';
+import 'package:shimmer_effect/screens/speech_to_text.dart';
 import 'package:shimmer_effect/screens/wave_custom_painter_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -98,7 +100,25 @@ class _HomeScreenState extends State<HomeScreen> {
                         builder: (context) => const WaveCustomPainterScreen(),
                       ));
                 },
-                child: const Text("Wave Custom Painter"))
+                child: const Text("Wave Custom Painter")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CircularProgressScreen(),
+                      ));
+                },
+                child: const Text("Animated Circular Progress")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SpeechTpTextScreen(),
+                      ));
+                },
+                child: const Text("Speech to text")),
           ],
         ),
       ),

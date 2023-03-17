@@ -7,8 +7,8 @@ class ShapePainter extends CustomPainter {
     var paint = Paint()
       ..color = Colors.redAccent
       ..strokeWidth = 5
-      ..style = PaintingStyle.stroke
-      ..strokeCap = StrokeCap.round;
+      ..style = PaintingStyle.fill
+      ..strokeCap = StrokeCap.square;
 
     Offset center = Offset(size.width / 2, size.height / 2);
     //TO MAKE A CIRCLE
