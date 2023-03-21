@@ -7,8 +7,11 @@ import 'package:shimmer_effect/screens/circular_progress_screen.dart';
 import 'package:shimmer_effect/screens/cp_background_screen.dart';
 import 'package:shimmer_effect/screens/custom_painter_screen.dart';
 import 'package:shimmer_effect/screens/product_screen.dart';
+import 'package:shimmer_effect/screens/rive_animation.dart';
 import 'package:shimmer_effect/screens/speech_to_text.dart';
 import 'package:shimmer_effect/screens/wave_custom_painter_screen.dart';
+
+import 'background_rive_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -119,6 +122,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       ));
                 },
                 child: const Text("Speech to text")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const RiveAnimationScreen(),
+                      ));
+                },
+                child: const Text("Rive Animation")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BackgroundRiveScreen(),
+                      ));
+                },
+                child: const Text("Rive Animation- Background")),
           ],
         ),
       ),
