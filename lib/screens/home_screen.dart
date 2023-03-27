@@ -7,6 +7,7 @@ import 'package:shimmer_effect/screens/circular_progress_screen.dart';
 import 'package:shimmer_effect/screens/cp_background_screen.dart';
 import 'package:shimmer_effect/screens/custom_painter_screen.dart';
 import 'package:shimmer_effect/screens/internet_checker_screen.dart';
+import 'package:shimmer_effect/screens/location_screen.dart';
 import 'package:shimmer_effect/screens/product_screen.dart';
 import 'package:shimmer_effect/screens/rive_animation.dart';
 import 'package:shimmer_effect/screens/speech_to_text.dart';
@@ -167,6 +168,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const InternetCheckerScreen(),
+                    ));
+              },
+            ),
+            ElevatedButton(
+              child: const Text("Location"),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LocationScreen(),
                     ));
               },
             ),

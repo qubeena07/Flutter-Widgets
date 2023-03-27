@@ -44,6 +44,8 @@ dependencies:
   universal_html: ^2.2.1
   snackbar: ^1.0.2
   simple_internet_checker: ^0.0.2
+  geolocator: ^9.0.2
+  geocoding: ^2.1.0
 
 
 dev_dependencies:
