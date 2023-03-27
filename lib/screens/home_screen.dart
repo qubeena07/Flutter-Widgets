@@ -12,6 +12,7 @@ import 'package:shimmer_effect/screens/speech_to_text.dart';
 import 'package:shimmer_effect/screens/wave_custom_painter_screen.dart';
 
 import 'background_rive_screen.dart';
+import 'package:universal_html/html.dart' as html;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -140,6 +141,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       ));
                 },
                 child: const Text("Rive Animation- Background")),
+            ElevatedButton(
+              child: const Text("Request permission"),
+              onPressed: () async {
+                final perm = await html.window.navigator.permissions
+                    ?.query({"name": "camera"});
+                if (perm?.state == "denied") {
+                  // Scaffold.of(context).
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text("Oops! Camera access denied!"),
+                    backgroundColor: Colors.orangeAccent,
+                  ));
+                  return;
+                }
+                final stream =
+                    await html.window.navigator.getUserMedia(video: true);
+                // ...
+              },
+            )
           ],
         ),
       ),

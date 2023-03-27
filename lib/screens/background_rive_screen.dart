@@ -54,6 +54,7 @@ class _BackgroundRiveScreenState extends State<BackgroundRiveScreen> {
                   btnAnimationController: _btnAnimationController,
                   press: () {
                     _btnAnimationController.isActive = true;
+                    Future.delayed(const Duration(seconds: 20));
                   },
                 )
               ],
