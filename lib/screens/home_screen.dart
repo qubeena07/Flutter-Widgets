@@ -6,13 +6,13 @@ import 'package:shimmer_effect/repo/network_api.dart';
 import 'package:shimmer_effect/screens/circular_progress_screen.dart';
 import 'package:shimmer_effect/screens/cp_background_screen.dart';
 import 'package:shimmer_effect/screens/custom_painter_screen.dart';
+import 'package:shimmer_effect/screens/internet_checker_screen.dart';
 import 'package:shimmer_effect/screens/product_screen.dart';
 import 'package:shimmer_effect/screens/rive_animation.dart';
 import 'package:shimmer_effect/screens/speech_to_text.dart';
 import 'package:shimmer_effect/screens/wave_custom_painter_screen.dart';
 
 import 'background_rive_screen.dart';
-import 'package:universal_html/html.dart' as html;
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,6 +24,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   bool autoPlay = false;
   bool autoPlay1 = false;
+
   @override
   Widget build(BuildContext context) {
     var productModel = Provider.of<NetworkApi>(context).getProduct();
@@ -141,24 +142,34 @@ class _HomeScreenState extends State<HomeScreen> {
                       ));
                 },
                 child: const Text("Rive Animation- Background")),
+            // ElevatedButton(
+            //   child: const Text("Request permission"),
+            //   onPressed: () async {
+            //     final perm = await html.window.navigator.permissions
+            //         ?.query({"name": "camera"});
+            //     if (perm?.state == "denied") {
+            //       // Scaffold.of(context).
+            //       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            //         content: Text("Oops! Camera access denied!"),
+            //         backgroundColor: Colors.orangeAccent,
+            //       ));
+            //       return;
+            //     }
+            //     final stream =
+            //         await html.window.navigator.getUserMedia(video: true);
+            //     // ...
+            //   },
+            // ),
             ElevatedButton(
-              child: const Text("Request permission"),
-              onPressed: () async {
-                final perm = await html.window.navigator.permissions
-                    ?.query({"name": "camera"});
-                if (perm?.state == "denied") {
-                  // Scaffold.of(context).
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: Text("Oops! Camera access denied!"),
-                    backgroundColor: Colors.orangeAccent,
-                  ));
-                  return;
-                }
-                final stream =
-                    await html.window.navigator.getUserMedia(video: true);
-                // ...
+              child: const Text("Internet Checker"),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const InternetCheckerScreen(),
+                    ));
               },
-            )
+            ),
           ],
         ),
       ),
