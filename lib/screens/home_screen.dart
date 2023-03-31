@@ -8,6 +8,7 @@ import 'package:shimmer_effect/screens/animated_text_screen.dart';
 import 'package:shimmer_effect/screens/circular_progress_screen.dart';
 import 'package:shimmer_effect/screens/cp_background_screen.dart';
 import 'package:shimmer_effect/screens/custom_painter_screen.dart';
+import 'package:shimmer_effect/screens/flutter_web_screen.dart';
 import 'package:shimmer_effect/screens/internet_checker_screen.dart';
 import 'package:shimmer_effect/screens/location_screen.dart';
 import 'package:shimmer_effect/screens/location_tracking_screen.dart';
@@ -42,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Colors.deepPurple.withOpacity(0.6),
         ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ShakeWidget(
               shakeConstant: ShakeChunkConstant(),
@@ -211,6 +212,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const DemoScreen(),
+                    ));
+              },
+            ),
+            ElevatedButton(
+              child: const Text("Flutter Web"),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const FlutterWebScreen(),
                     ));
               },
             ),
