@@ -1,0 +1,12 @@
+com.example.shimmer_effect.app-jetified-window-java-1.0.0-beta04-0 /Users/dipika/.gradle/caches/transforms-3/006d93cd422dbc43e89591147c2de572/transformed/jetified-window-java-1.0.0-beta04/res
+com.example.shimmer_effect.app-core-1.6.0-1 /Users/dipika/.gradle/caches/transforms-3/4ca28c4a71705f8a687c69dda140a277/transformed/core-1.6.0/res
+com.example.shimmer_effect.app-jetified-annotation-experimental-1.1.0-2 /Users/dipika/.gradle/caches/transforms-3/8965c941cf4bee4d72541b965c7c9d39/transformed/jetified-annotation-experimental-1.1.0/res
+com.example.shimmer_effect.app-jetified-window-1.0.0-beta04-3 /Users/dipika/.gradle/caches/transforms-3/dee59bb480020f42d53c2ea15e4501f7/transformed/jetified-window-1.0.0-beta04/res
+com.example.shimmer_effect.app-debug-4 /Users/dipika/Documents/Flutter Projects/shimmer_effect/android/app/src/debug/res
+com.example.shimmer_effect.app-main-5 /Users/dipika/Documents/Flutter Projects/shimmer_effect/android/app/src/main/res
+com.example.shimmer_effect.app-pngs-6 /Users/dipika/Documents/Flutter Projects/shimmer_effect/build/app/generated/res/pngs/debug
+com.example.shimmer_effect.app-resValues-7 /Users/dipika/Documents/Flutter Projects/shimmer_effect/build/app/generated/res/resValues/debug
+com.example.shimmer_effect.app-rs-8 /Users/dipika/Documents/Flutter Projects/shimmer_effect/build/app/generated/res/rs/debug
+com.example.shimmer_effect.app-mergeDebugResources-9 /Users/dipika/Documents/Flutter Projects/shimmer_effect/build/app/intermediates/incremental/debug/mergeDebugResources/merged.dir
+com.example.shimmer_effect.app-mergeDebugResources-10 /Users/dipika/Documents/Flutter Projects/shimmer_effect/build/app/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+com.example.shimmer_effect.app-merged_res-11 /Users/dipika/Documents/Flutter Projects/shimmer_effect/build/app/intermediates/merged_res/debug

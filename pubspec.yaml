@@ -46,6 +46,10 @@ dependencies:
   simple_internet_checker: ^0.0.2
   geolocator: ^9.0.2
   geocoding: ^2.1.0
+  animated_text_kit: ^4.2.2
+  location: ^4.4.0
+  google_maps_flutter: ^2.2.5
+  flutter_polyline_points: ^1.0.0
 
 
 dev_dependencies:

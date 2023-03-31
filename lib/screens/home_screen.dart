@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shake_animated/flutter_shake_animated.dart';
 import 'package:provider/provider.dart';
+import 'package:shimmer_effect/repo/demo_screen.dart';
 
 import 'package:shimmer_effect/repo/network_api.dart';
+import 'package:shimmer_effect/screens/animated_text_screen.dart';
 import 'package:shimmer_effect/screens/circular_progress_screen.dart';
 import 'package:shimmer_effect/screens/cp_background_screen.dart';
 import 'package:shimmer_effect/screens/custom_painter_screen.dart';
 import 'package:shimmer_effect/screens/internet_checker_screen.dart';
 import 'package:shimmer_effect/screens/location_screen.dart';
+import 'package:shimmer_effect/screens/location_tracking_screen.dart';
 import 'package:shimmer_effect/screens/product_screen.dart';
 import 'package:shimmer_effect/screens/rive_animation.dart';
 import 'package:shimmer_effect/screens/speech_to_text.dart';
@@ -178,6 +181,36 @@ class _HomeScreenState extends State<HomeScreen> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => const LocationScreen(),
+                    ));
+              },
+            ),
+            ElevatedButton(
+              child: const Text("Animated Text Kit"),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AnimatedTextScreen(),
+                    ));
+              },
+            ),
+            ElevatedButton(
+              child: const Text("Live Location Tracking"),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const LocationTrackingScreen(),
+                    ));
+              },
+            ),
+            ElevatedButton(
+              child: const Text("Demo Screen"),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const DemoScreen(),
                     ));
               },
             ),
