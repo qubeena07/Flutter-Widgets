@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer_effect/repo/network_api.dart';
-import 'package:shimmer_effect/screens/flutter_web_screen.dart';
 import 'package:shimmer_effect/screens/home_screen.dart';
 import 'package:simple_internet_checker/src/screen/connectivity_screen.dart';
 
@@ -25,8 +24,9 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          home: const FlutterWebScreen(),
-          // const HomeScreen(),
+          home:
+              // const FlutterWebScreen(),
+              const HomeScreen(),
           scaffoldMessengerKey: messengerKey,
         ),
       ),
