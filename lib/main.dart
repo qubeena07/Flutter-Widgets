@@ -56,3 +56,20 @@ class MyApp extends StatelessWidget {
     });
   }
 }
+
+
+
+//   Map<String, dynamic> map = {
+//     'name':'hello',
+//     'na2':'hello',
+//     'name3':'hello',
+//     'name4':'hello',
+//     'name5':'hello',
+//   };
+  
+//   List listValu = map.keys.toList();
+//   List listvall = map.values.toList();
+//   String a =listValu[2].toString();
+//   String b = listvall[2].toString();
+//   print(a);
+//   print(b);

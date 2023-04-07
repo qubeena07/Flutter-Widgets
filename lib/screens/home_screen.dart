@@ -16,6 +16,7 @@ import 'package:shimmer_effect/screens/hero_screen.dart';
 import 'package:shimmer_effect/screens/in_app_update_screen.dart';
 import 'package:shimmer_effect/screens/internet_checker_screen.dart';
 import 'package:shimmer_effect/screens/lazy_loading_screen.dart';
+import 'package:shimmer_effect/screens/list_view_animation_screen.dart';
 import 'package:shimmer_effect/screens/location_screen.dart';
 import 'package:shimmer_effect/screens/location_tracking_screen.dart';
 import 'package:shimmer_effect/screens/product_screen.dart';
@@ -311,6 +312,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                       const InAppUpdateScreen()));
                         },
                         child: const Text("In App Update")),
+
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ListViewAnimationScreen()));
+                        },
+                        child: const Text("List View Animaton")),
                   ],
                 ),
               ),
