@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:in_app_update/in_app_update.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer_effect/repo/network_api.dart';
 import 'package:shimmer_effect/screens/home_screen.dart';
@@ -31,5 +32,27 @@ class MyApp extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  //THIS CODE IS FOR IN-APP-UPDATE
+  // CALL THIS ON INIT METHOD AND THE APP SHOULD BE AVAILABLE IN PLAYSTORE AND
+  //RUN IN REAL DEVICE
+  //FOR ANDROID ONLY
+  updateAvailability() {
+    InAppUpdate.checkForUpdate().then((updateInfo) {
+      if (updateInfo.updateAvailability == UpdateAvailability.updateAvailable) {
+        if (updateInfo.immediateUpdateAllowed) {
+          InAppUpdate.performImmediateUpdate().then((appUpdateResult) {
+            if (appUpdateResult == AppUpdateResult.success) {}
+          });
+        }
+      } else if (updateInfo.flexibleUpdateAllowed) {
+        InAppUpdate.startFlexibleUpdate().then((appUpdateResult) {
+          if (appUpdateResult == AppUpdateResult.success) {
+            InAppUpdate.completeFlexibleUpdate();
+          }
+        });
+      }
+    });
   }
 }

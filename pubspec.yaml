@@ -50,6 +50,8 @@ dependencies:
   location: ^4.4.0
   google_maps_flutter: ^2.2.5
   flutter_polyline_points: ^1.0.0
+  in_app_update: ^4.0.1
+  syncfusion_flutter_charts: ^21.1.38
 
 
 dev_dependencies:
