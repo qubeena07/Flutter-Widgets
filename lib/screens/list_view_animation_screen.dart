@@ -69,7 +69,7 @@ class _ListViewAnimationScreenState extends State<ListViewAnimationScreen> {
                 ),
               ),
               const Text(
-                "click on animation list to display list in animation",
+                "Click on animation list to display list in animation",
                 style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w200,
