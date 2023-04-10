@@ -21,6 +21,7 @@ import 'package:shimmer_effect/screens/location_screen.dart';
 import 'package:shimmer_effect/screens/location_tracking_screen.dart';
 import 'package:shimmer_effect/screens/product_screen.dart';
 import 'package:shimmer_effect/screens/rive_animation.dart';
+import 'package:shimmer_effect/screens/rotation_animation_screen.dart';
 import 'package:shimmer_effect/screens/speech_to_text.dart';
 import 'package:shimmer_effect/screens/wave_custom_painter_screen.dart';
 
@@ -322,6 +323,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                       const ListViewAnimationScreen()));
                         },
                         child: const Text("List View Animaton")),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const RotationAnimationScreen()));
+                        },
+                        child: const Text("Rotate Animaton")),
                   ],
                 ),
               ),
