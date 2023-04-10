@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "87190032718",
+    "project_id": "flutter-chat-app-2bdca",
+    "storage_bucket": "flutter-chat-app-2bdca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:87190032718:android:b419db2b6f218bd057ce1f",
+        "android_client_info": {
+          "package_name": "com.example.shimmer_effect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "87190032718-8pfidhj8edhokput8gaf163qt565kg5j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzBlO7hFpXN4ByMP-Mlm12dPSXiyK-IQM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "87190032718-8pfidhj8edhokput8gaf163qt565kg5j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "87190032718-6fp12c4ektjrfv08ml6lnjr2e6h1098h.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shimmerEffect"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

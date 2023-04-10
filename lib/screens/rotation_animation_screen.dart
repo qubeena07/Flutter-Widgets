@@ -12,6 +12,7 @@ class _RotationAnimationScreenState extends State<RotationAnimationScreen>
     with TickerProviderStateMixin {
   late AnimationController controller1;
   late AnimationController controller2;
+  late AnimationController controller;
 
   late Animation<double> animation1;
   late Animation<double> animation2;
@@ -27,12 +28,15 @@ class _RotationAnimationScreenState extends State<RotationAnimationScreen>
         AnimationController(vsync: this, duration: const Duration(seconds: 6));
     animation2 = CurvedAnimation(parent: controller2, curve: Curves.easeOut);
     controller2.repeat();
+    controller = BottomSheet.createAnimationController(this);
+    controller.duration = const Duration(seconds: 3);
   }
 
   @override
   void dispose() {
     controller1.dispose();
     controller2.dispose();
+    controller.dispose();
     super.dispose();
   }
 
@@ -65,6 +69,23 @@ class _RotationAnimationScreenState extends State<RotationAnimationScreen>
               child: Image.asset("assets/star1.jpeg"),
             ),
           ),
+          const SizedBox(
+            height: 30,
+          ),
+          TextButton(
+            child: const Text("Show bottom sheet"),
+            onPressed: () => showModalBottomSheet(
+              context: context,
+              transitionAnimationController: controller,
+              builder: (context) {
+                return Container(
+                  color: Colors.green,
+                  height: 200,
+                  child: const Text("Your bottom sheet"),
+                );
+              },
+            ),
+          )
         ],
       ),
     );

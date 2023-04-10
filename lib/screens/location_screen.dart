@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});
@@ -70,6 +72,15 @@ class _LocationScreenState extends State<LocationScreen> {
     });
   }
 
+  //open current location in google map
+  Future<void> _openMap({required String lat, required String lang}) async {
+    final Uri googleUrl =
+        Uri.parse("https://www.google.com/maps/search/?api=1&query=$lat,$lang");
+    await canLaunchUrl(googleUrl)
+        ? await launchUrlString(googleUrl.toString())
+        : throw "Could not launch $googleUrl";
+  }
+
   @override
   Widget build(BuildContext context) {
     log(_currentAddress.toString(), name: "current position");
@@ -88,7 +99,14 @@ class _LocationScreenState extends State<LocationScreen> {
             ),
             ElevatedButton(
                 onPressed: _getCurrentPosition,
-                child: const Text("Get Current Location"))
+                child: const Text("Get Current Location")),
+            ElevatedButton(
+                onPressed: () {
+                  _openMap(
+                      lat: _currentPosition?.latitude.toString() ?? "0.0",
+                      lang: _currentPosition?.longitude.toString() ?? "0.0");
+                },
+                child: const Text("Open in google map"))
           ],
         ),
       ),
