@@ -25,6 +25,7 @@ import 'package:shimmer_effect/screens/rive_animation.dart';
 import 'package:shimmer_effect/screens/rotation_animation_screen.dart';
 import 'package:shimmer_effect/screens/speech_to_text.dart';
 import 'package:shimmer_effect/screens/wave_custom_painter_screen.dart';
+import 'package:shimmer_effect/widgets/download_button.dart';
 
 import 'background_rive_screen.dart';
 
@@ -346,6 +347,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                   builder: (context) => const DrawingScreen()));
                         },
                         child: const Text("Drawing")),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ExampleCupertinoDownloadButton()));
+                        },
+                        child: const Text("Download button")),
                   ],
                   // ),
                 ),
