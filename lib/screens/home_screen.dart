@@ -11,6 +11,7 @@ import 'package:shimmer_effect/screens/charts_screen.dart';
 import 'package:shimmer_effect/screens/circular_progress_screen.dart';
 import 'package:shimmer_effect/screens/cp_background_screen.dart';
 import 'package:shimmer_effect/screens/custom_painter_screen.dart';
+import 'package:shimmer_effect/screens/drawing_screen.dart';
 import 'package:shimmer_effect/screens/flutter_web_screen.dart';
 import 'package:shimmer_effect/screens/hero_screen.dart';
 import 'package:shimmer_effect/screens/in_app_update_screen.dart';
@@ -78,6 +79,11 @@ class _HomeScreenState extends State<HomeScreen> {
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
+                // child: RefreshIndicator(
+                //   color: Colors.green,
+                //   onRefresh: () async {
+                //     await Future.delayed(const Duration(seconds: 10));
+                //   },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -332,7 +338,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                       const RotationAnimationScreen()));
                         },
                         child: const Text("Rotate Animaton")),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const DrawingScreen()));
+                        },
+                        child: const Text("Drawing")),
                   ],
+                  // ),
                 ),
               ),
             ),
