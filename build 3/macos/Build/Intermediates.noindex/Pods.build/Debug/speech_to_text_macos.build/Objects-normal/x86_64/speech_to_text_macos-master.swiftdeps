@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
+options: "90bc719b34e1e4eeb562988fc792d12f40a9f12e186e503af5a9ae11733896fe"
+build_start_time: [1680238350, 118703842]
+build_end_time: [1680238401, 932963848]
+inputs:
+  "/Users/dipika/.pub-cache/hosted/pub.dev/speech_to_text_macos-1.0.2/macos/Classes/SpeechToTextMacosPlugin.swift": [1678963569, 14535427]

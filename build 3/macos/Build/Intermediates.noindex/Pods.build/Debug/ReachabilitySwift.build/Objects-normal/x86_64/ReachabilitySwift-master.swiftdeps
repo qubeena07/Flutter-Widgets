@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
+options: "7341091bd4493d76408aeae8d5b97dba26001f3be20d662fb15fe4068c369dbf"
+build_start_time: [1680238498, 129643917]
+build_end_time: [1680238546, 269911050]
+inputs:
+  "/Users/dipika/Documents/Flutter Projects/shimmer_effect/macos/Pods/ReachabilitySwift/Sources/Reachability.swift": [1680238259, 472365379]
