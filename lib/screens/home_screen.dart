@@ -16,6 +16,7 @@ import 'package:shimmer_effect/screens/flutter_web_screen.dart';
 import 'package:shimmer_effect/screens/hero_screen.dart';
 import 'package:shimmer_effect/screens/in_app_update_screen.dart';
 import 'package:shimmer_effect/screens/internet_checker_screen.dart';
+import 'package:shimmer_effect/screens/ios_home_screen.dart';
 import 'package:shimmer_effect/screens/lazy_loading_screen.dart';
 import 'package:shimmer_effect/screens/list_view_animation_screen.dart';
 import 'package:shimmer_effect/screens/location_screen.dart';
@@ -356,6 +357,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                       const ExampleCupertinoDownloadButton()));
                         },
                         child: const Text("Download button")),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const IosHomeScreen()));
+                        },
+                        child: const Text("Ios Design"))
                   ],
                   // ),
                 ),

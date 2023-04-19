@@ -8,13 +8,14 @@ class ChartScreen extends StatefulWidget {
   State<ChartScreen> createState() => _ChartScreenState();
 }
 
+final List<ChartData> chartData = [
+  ChartData('David', 34, const Color.fromRGBO(9, 0, 136, 1)),
+  ChartData('Steve', 58, const Color.fromRGBO(147, 0, 119, 1)),
+  ChartData('Jack', 28, const Color.fromRGBO(228, 0, 124, 1)),
+  ChartData('Others', 80, const Color.fromRGBO(255, 189, 57, 1))
+];
+
 class _ChartScreenState extends State<ChartScreen> {
-  final List<ChartData> chartData = [
-    ChartData('David', 34, const Color.fromRGBO(9, 0, 136, 1)),
-    ChartData('Steve', 58, const Color.fromRGBO(147, 0, 119, 1)),
-    ChartData('Jack', 28, const Color.fromRGBO(228, 0, 124, 1)),
-    ChartData('Others', 80, const Color.fromRGBO(255, 189, 57, 1))
-  ];
   final List<ChartDataLine> chartDataLine = [
     ChartDataLine(2010, 10, const Color.fromRGBO(9, 0, 136, 1)),
     ChartDataLine(2015, 34, const Color.fromRGBO(255, 189, 57, 1)),

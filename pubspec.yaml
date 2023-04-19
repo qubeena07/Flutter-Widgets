@@ -52,9 +52,10 @@ dependencies:
   flutter_polyline_points: ^1.0.0
   in_app_update: ^4.0.1
   syncfusion_flutter_charts: ^21.1.38
-  firebase_core: ^2.9.0
-  cloud_firestore: ^4.5.0
+  # firebase_core: ^2.9.0
+  # cloud_firestore: ^4.5.0
   url_launcher: ^6.1.10
+  dotted_line: ^3.1.0
 
 
 dev_dependencies:
