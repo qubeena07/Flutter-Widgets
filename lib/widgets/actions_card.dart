@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ActionCard extends StatelessWidget {
   ActionCard({super.key, required this.iconValue, this.onTap});
@@ -9,18 +10,18 @@ class ActionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: EdgeInsets.all(10.0.r),
       child: GestureDetector(
         onTap: onTap,
         child: Container(
             decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(10)),
+                color: Colors.white, borderRadius: BorderRadius.circular(10.r)),
             child: Padding(
-              padding: const EdgeInsets.all(14),
+              padding: EdgeInsets.all(14.r),
               child: Center(
                 child: Icon(
                   iconValue,
-                  size: 35,
+                  size: 25.sp,
                 ),
               ),
             )),

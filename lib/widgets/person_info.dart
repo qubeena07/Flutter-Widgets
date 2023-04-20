@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PersonInfo extends StatelessWidget {
   PersonInfo(
@@ -19,44 +20,44 @@ class PersonInfo extends StatelessWidget {
     return Row(
       children: [
         CircleImage(urlImage: urlImage),
-        const SizedBox(
-          width: 10,
+        SizedBox(
+          width: 10.w,
         ),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               name ?? "John James",
-              style: const TextStyle(
+              style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 20,
+                  fontSize: 18.sp,
                   color: Colors.black),
             ),
-            const SizedBox(
-              height: 8,
+            SizedBox(
+              height: 8.h,
             ),
             IntrinsicHeight(
               child: Row(
                 children: [
                   Text(
                     position ?? "CEO",
-                    style: const TextStyle(
+                    style: TextStyle(
                         fontWeight: FontWeight.w400,
-                        fontSize: 16,
-                        color: Color.fromARGB(255, 87, 87, 87)),
+                        fontSize: 14.sp,
+                        color: const Color.fromARGB(255, 87, 87, 87)),
                   ),
-                  const VerticalDivider(
+                  VerticalDivider(
                     color: Colors.black,
-                    thickness: 0.2,
+                    thickness: 0.2.h,
 
                     // thickness: 0.4,
                   ),
                   Text(
                     place ?? "CEO",
-                    style: const TextStyle(
+                    style: TextStyle(
                         fontWeight: FontWeight.w400,
-                        fontSize: 16,
-                        color: Color.fromARGB(255, 87, 87, 87)),
+                        fontSize: 14.sp,
+                        color: const Color.fromARGB(255, 87, 87, 87)),
                   ),
                 ],
               ),
@@ -66,8 +67,10 @@ class PersonInfo extends StatelessWidget {
         const Spacer(),
         Text(
           percentage ?? "10%",
-          style: const TextStyle(
-              fontWeight: FontWeight.w700, fontSize: 20, color: Colors.black),
+          style: TextStyle(
+              fontWeight: FontWeight.w700,
+              fontSize: 20.sp,
+              color: Colors.black),
         ),
       ],
     );
@@ -82,7 +85,7 @@ class CircleImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-        radius: radius ?? 30,
+        radius: radius ?? 25.sp,
         backgroundImage: NetworkImage(
           urlImage,
         ));

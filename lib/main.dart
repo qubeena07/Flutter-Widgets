@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer_effect/repo/network_api.dart';
@@ -17,20 +18,24 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ConnectivityScreen(
-      child: MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (_) => NetworkApi()),
-        ],
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          home:
-              // const FlutterWebScreen(),
-              const HomeScreen(),
-          scaffoldMessengerKey: messengerKey,
-        ),
-      ),
+    return ScreenUtilInit(
+      builder: (BuildContext context, Widget? child) {
+        return ConnectivityScreen(
+          child: MultiProvider(
+            providers: [
+              ChangeNotifierProvider(create: (_) => NetworkApi()),
+            ],
+            child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Flutter Demo',
+              home:
+                  // const FlutterWebScreen(),
+                  const HomeScreen(),
+              scaffoldMessengerKey: messengerKey,
+            ),
+          ),
+        );
+      },
     );
   }
 

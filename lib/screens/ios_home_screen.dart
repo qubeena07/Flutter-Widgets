@@ -1,7 +1,8 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:shimmer_effect/screens/charts_screen.dart';
-import 'package:shimmer_effect/screens/second_screen.dart';
 import 'package:shimmer_effect/widgets/bottom_navigation.dart';
 import 'package:shimmer_effect/widgets/custom_button.dart';
 import 'package:shimmer_effect/widgets/ios_home_card.dart';
@@ -26,18 +27,20 @@ class _IosHomeScreenState extends State<IosHomeScreen> {
                 image: AssetImage("assets/freeShape.png"),
                 alignment: Alignment.bottomCenter,
                 fit: BoxFit.fitWidth),
-            gradient: LinearGradient(
-                colors: [Colors.grey.shade300, Colors.brown.shade100])),
+            gradient: LinearGradient(colors: [
+              Colors.grey.shade300, Colors.brown.shade100
+              // CupertinoColors.systemGrey3, Color.fromARGB(255, 249, 168, 70)
+            ])),
         child: Padding(
           padding:
-              const EdgeInsets.only(top: 70, left: 25, right: 25, bottom: 20),
+              EdgeInsets.only(top: 70.h, left: 25.w, right: 25.w, bottom: 20.h),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
               Row(
-                children: const [
-                  CircleAvatar(
+                children: [
+                  const CircleAvatar(
                     backgroundColor: Colors.white,
                     child: Icon(
                       Icons.air_sharp,
@@ -45,50 +48,50 @@ class _IosHomeScreenState extends State<IosHomeScreen> {
                     ),
                   ),
                   SizedBox(
-                    width: 20,
+                    width: 20.w,
                   ),
                   Text(
                     "DATASET",
                     style: TextStyle(
-                        fontSize: 22,
+                        fontSize: 22.sp,
                         color: Colors.black,
                         fontWeight: FontWeight.w700),
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 45,
+              SizedBox(
+                height: 45.h,
               ),
-              const Text(
-                "YOUR BEST MARKETING &\nDATA ANALYSER",
+              Text(
+                "YOUR BEST MARKETING&\nDATA ANALYSER",
                 style: TextStyle(
-                    fontSize: 25,
+                    fontSize: 22.sp,
                     color: Colors.black,
                     fontWeight: FontWeight.bold),
               ),
-              const SizedBox(
-                height: 20,
+              SizedBox(
+                height: 20.h,
               ),
               RichText(
-                text: const TextSpan(
+                text: TextSpan(
                     text: 'Get a',
-                    style: TextStyle(color: Colors.black, fontSize: 16),
+                    style: TextStyle(color: Colors.black, fontSize: 16.sp),
                     children: <TextSpan>[
                       TextSpan(
                         text: ' clear vision',
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.w700,
-                            fontSize: 16),
+                            fontSize: 16.sp),
                       ),
                       TextSpan(
                         text: ' of business.',
-                        style: TextStyle(color: Colors.black, fontSize: 16),
+                        style: TextStyle(color: Colors.black, fontSize: 16.sp),
                       ),
                     ]),
               ),
-              const SizedBox(
-                height: 40,
+              SizedBox(
+                height: 40.h,
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -98,8 +101,8 @@ class _IosHomeScreenState extends State<IosHomeScreen> {
                       // isStack: false,
                       firstText: "Best\nNew Solutions",
                       // sizedBoxHeight: 0,
-                      contHeight: 160,
-                      contWidth: 160,
+                      contHeight: 160.h,
+                      contWidth: 160.w,
                       cardWidget: SfCircularChart(
                         series: <CircularSeries>[
                           DoughnutSeries<ChartData, String>(
@@ -112,36 +115,36 @@ class _IosHomeScreenState extends State<IosHomeScreen> {
                         ],
                       ),
                     ),
-                    const SizedBox(
-                      width: 20,
+                    SizedBox(
+                      width: 20.w,
                     ),
                     IosHomeCard(
                         // isStack: false,
                         firstText: "500+",
-                        firstSize: 40,
+                        firstSize: 40.sp,
                         subText: "businesses\nalready joined us!",
-                        subSize: 12,
-                        sizedBoxHeight: 100,
-                        contHeight: 40,
-                        contWidth: 100,
+                        subSize: 12.sp,
+                        sizedBoxHeight: 100.h,
+                        contHeight: 40.h,
+                        contWidth: 100.w,
                         cardWidget: buildStackedImages()),
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 100,
+              SizedBox(
+                height: 100.h,
               ),
               Center(
                 child: SizedBox(
-                  width: 300,
+                  width: 300.w,
                   child: Stack(
                     children: [
-                      const Padding(
-                          padding: EdgeInsets.only(top: 18),
+                      Padding(
+                          padding: EdgeInsets.only(top: 18.h),
                           child: DottedLine(
                             direction: Axis.horizontal,
                             lineLength: double.infinity,
-                            lineThickness: 1.5,
+                            lineThickness: 1.5.h,
                             dashLength: 2.0,
                             dashColor: Colors.black,
                             dashGapLength: 4.0,
@@ -164,7 +167,7 @@ class _IosHomeScreenState extends State<IosHomeScreen> {
                                     // const AnalyticsScreen()
                                     ));
                           },
-                          width: 180,
+                          width: 180.w,
                           text: "Get started",
                           icon: Icons.arrow_circle_up,
                         ),
@@ -184,8 +187,8 @@ class _IosHomeScreenState extends State<IosHomeScreen> {
 Widget buildStackedImages({
   TextDirection direction = TextDirection.ltr,
 }) {
-  const double size = 40;
-  const double xShift = 8;
+  double size = 40.sp;
+  double xShift = 8.sp;
   final urlImages = [
     'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=633&q=80',
     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80',
@@ -201,10 +204,10 @@ Widget buildStackedImages({
 }
 
 Widget buildImage(String urlImage) {
-  const double borderSize = 5;
+  double borderSize = 5.sp;
   return ClipOval(
     child: Container(
-      padding: const EdgeInsets.all(borderSize),
+      padding: EdgeInsets.all(borderSize),
       color: Colors.white,
       child: ClipOval(
         child: Image.network(

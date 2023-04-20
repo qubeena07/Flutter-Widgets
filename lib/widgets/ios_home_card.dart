@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class IosHomeCard extends StatelessWidget {
   IosHomeCard(
@@ -31,12 +32,12 @@ class IosHomeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
-      width: 190,
+      height: 250.h,
+      width: 190.w,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), color: Colors.white),
+          borderRadius: BorderRadius.circular(20.r), color: Colors.white),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16.r),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -45,20 +46,20 @@ class IosHomeCard extends StatelessWidget {
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
-                  fontSize: firstSize ?? 15),
+                  fontSize: firstSize ?? 15.sp),
             ),
             SizedBox(
-              height: sizeBox1 ?? 0,
+              height: sizeBox1 ?? 0.h,
             ),
             Text(
               subText ?? "",
               style: TextStyle(
                   fontWeight: FontWeight.w500,
                   color: Colors.grey,
-                  fontSize: subSize ?? 10),
+                  fontSize: subSize ?? 10.h),
             ),
             SizedBox(
-              height: sizedBoxHeight ?? 0,
+              height: sizedBoxHeight ?? 0.h,
             ),
 
             SizedBox(height: contHeight, width: contWidth, child: cardWidget),

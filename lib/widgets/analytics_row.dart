@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AnalyticsRow extends StatelessWidget {
   AnalyticsRow({super.key, required this.title, required this.cTitle});
@@ -12,22 +13,24 @@ class AnalyticsRow extends StatelessWidget {
       children: [
         Text(
           title,
-          style: const TextStyle(
-              fontSize: 18, color: Colors.black, fontWeight: FontWeight.w700),
+          style: TextStyle(
+              fontSize: 18.sp,
+              color: Colors.black,
+              fontWeight: FontWeight.w700),
         ),
         const Spacer(),
         Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(4),
+              borderRadius: BorderRadius.circular(4.r),
               border: Border.all(color: Colors.grey)),
           child: Padding(
-            padding: const EdgeInsets.all(4),
+            padding: EdgeInsets.all(4.r),
             child: Center(
               child: Text(
                 cTitle,
-                style: const TextStyle(
+                style: TextStyle(
                     color: Colors.grey,
-                    fontSize: 13,
+                    fontSize: 13.sp,
                     fontWeight: FontWeight.w800),
               ),
             ),
