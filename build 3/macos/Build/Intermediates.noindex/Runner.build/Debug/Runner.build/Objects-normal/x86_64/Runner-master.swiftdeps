@@ -1,8 +1,0 @@
-version: "Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)"
-options: "a41d3e5f8eba9845f14e99d3ffa96933f8e7edb7d5170a3fb465b6387a166236"
-build_start_time: [1680238663, 897892951]
-build_end_time: [1680238722, 256278991]
-inputs:
-  "/Users/dipika/Documents/Flutter Projects/shimmer_effect/macos/Flutter/GeneratedPluginRegistrant.swift": [1680238217, 775974273]
-  "/Users/dipika/Documents/Flutter Projects/shimmer_effect/macos/Runner/AppDelegate.swift": [1638612554, 435996055]
-  "/Users/dipika/Documents/Flutter Projects/shimmer_effect/macos/Runner/MainFlutterWindow.swift": [1638612554, 443782091]

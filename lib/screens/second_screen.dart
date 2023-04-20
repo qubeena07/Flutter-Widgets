@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer_effect/screens/analytics_screen.dart';
 import 'package:shimmer_effect/widgets/actions_card.dart';
-import 'package:shimmer_effect/widgets/bottom_navigation.dart';
 import 'package:shimmer_effect/widgets/header_widget.dart';
 import 'package:shimmer_effect/widgets/person_info.dart';
 
@@ -14,124 +14,146 @@ class SecondScreen extends StatefulWidget {
 class _SecondScreenState extends State<SecondScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBody: true,
-      body: Container(
-        height: double.infinity,
-        decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Colors.grey.shade300, Colors.brown.shade100])),
-        child: Padding(
-          padding:
-              const EdgeInsets.only(top: 70, left: 25, right: 25, bottom: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              HeaderWidget(isMain: true),
-              const SizedBox(
-                height: 30,
-              ),
-              homeContainer(),
-              const SizedBox(
-                height: 30,
-              ),
-              Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 40),
-                    child: Container(
-                      height: 120,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(18),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            const Text(
-                              "DATA ACTIONS",
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                            const Spacer(),
-                            GestureDetector(
-                              onTap: () {},
-                              child: const Icon(
-                                Icons.more_horiz,
-                                color: Colors.grey,
+    return SafeArea(
+      child: Scaffold(
+        extendBody: true,
+        body: Container(
+          height: double.infinity,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: [Colors.grey.shade300, Colors.brown.shade100])),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                HeaderWidget(
+                  isCenter: false,
+                  isMain: true,
+                  title: "BRYAN SIMONIS",
+                  // onTap: () {
+                  //   Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(
+                  //           builder: (context) => const AnalyticsScreen()));
+                  // },
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                homeContainer(),
+                const SizedBox(
+                  height: 30,
+                ),
+                Stack(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 40),
+                      child: Container(
+                        height: 120,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              const Text(
+                                "DATA ACTIONS",
+                                style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w800),
                               ),
-                            )
-                          ],
+                              const Spacer(),
+                              GestureDetector(
+                                onTap: () {},
+                                child: const Icon(
+                                  Icons.more_horiz,
+                                  color: Colors.grey,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 18),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ActionCard(iconValue: Icons.file_download_rounded),
-                          // const SizedBox(width: 15),
-                          // const SizedBox(
-                          //   width: double.infinity / 3,
-                          // ),
-                          ActionCard(iconValue: Icons.bar_chart),
-                          // const SizedBox(width: 15),
-                          ActionCard(iconValue: Icons.refresh),
-                          // const SizedBox(width: 15),
-                          ActionCard(iconValue: Icons.menu),
-                        ],
+                    Positioned(
+                      bottom: 0,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 18),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            ActionCard(
+                              iconValue: Icons.file_download_rounded,
+                            ),
+                            // const SizedBox(width: 15),
+                            // const SizedBox(
+                            //   width: double.infinity / 3,
+                            // ),
+                            ActionCard(
+                              iconValue: Icons.bar_chart,
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const AnalyticsScreen()));
+                              },
+                            ),
+                            // const SizedBox(width: 15),
+                            ActionCard(iconValue: Icons.refresh),
+                            // const SizedBox(width: 15),
+                            ActionCard(iconValue: Icons.menu),
+                          ],
+                        ),
                       ),
-                    ),
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 40,
-              ),
-              const Text(
-                "EMAIL OPEN RATE",
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w800),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              PersonInfo(
-                  name: "Robert Fox",
-                  position: "CMO",
-                  place: "Borer",
-                  percentage: "63.4%",
-                  urlImage:
-                      'https://images.unsplash.com/photo-1616766098956-c81f12114571?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'),
-              const SizedBox(
-                height: 20,
-              ),
-              PersonInfo(
-                  name: "Marta Padberg",
-                  position: "COO",
-                  place: "Boehm",
-                  percentage: "72.9%",
-                  urlImage:
-                      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80')
-            ],
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                const Text(
+                  "EMAIL OPEN RATE",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w800),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                PersonInfo(
+                    name: "Robert Fox",
+                    position: "CMO",
+                    place: "Borer",
+                    percentage: "63.4%",
+                    urlImage:
+                        'https://images.unsplash.com/photo-1616766098956-c81f12114571?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80'),
+                const SizedBox(
+                  height: 20,
+                ),
+                PersonInfo(
+                    name: "Marta Padberg",
+                    position: "COO",
+                    place: "Boehm",
+                    percentage: "72.9%",
+                    urlImage:
+                        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80')
+              ],
+            ),
           ),
         ),
-      ),
-      bottomNavigationBar: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 13),
-        child: BottomNavigationWidget(),
+        // bottomNavigationBar: const Padding(
+        //   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 13),
+        //   child: BottomNavigationWidget(),
+        // ),
       ),
     );
   }

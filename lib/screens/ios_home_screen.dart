@@ -1,7 +1,8 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
-import 'package:shimmer_effect/screens/analytics_screen.dart';
 import 'package:shimmer_effect/screens/charts_screen.dart';
+import 'package:shimmer_effect/screens/second_screen.dart';
+import 'package:shimmer_effect/widgets/bottom_navigation.dart';
 import 'package:shimmer_effect/widgets/custom_button.dart';
 import 'package:shimmer_effect/widgets/ios_home_card.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -159,7 +160,9 @@ class _IosHomeScreenState extends State<IosHomeScreen> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const AnalyticsScreen()));
+                                        const BottomNavigationWidget()
+                                    // const AnalyticsScreen()
+                                    ));
                           },
                           width: 180,
                           text: "Get started",

@@ -1,1 +1,0 @@
-/Users/dipika/Documents/Flutter\ Projects/shimmer_effect/.dart_tool/flutter_build/d48bddfedc80dab3bd4a2c25db6929db/app.dill: /Users/dipika/Documents/Flutter\ Projects/shimmer_effect/lib/screens/dart_only.dart

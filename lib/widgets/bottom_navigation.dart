@@ -24,18 +24,16 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
     AnalyticsScreen(),
     SecondScreen()
   ];
-  final PageStorageBucket bucket = PageStorageBucket();
+  // final PageStorageBucket bucket = PageStorageBucket();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _screens[_selectedIndex],
-      ),
+      body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          backgroundColor: const Color(0x00ffffff),
+          backgroundColor: Colors.black.withOpacity(0.1),
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(
