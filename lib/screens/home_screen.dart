@@ -7,8 +7,10 @@ import 'package:shimmer_effect/repo/demo_screen.dart';
 
 import 'package:shimmer_effect/repo/network_api.dart';
 import 'package:shimmer_effect/screens/animated_text_screen.dart';
+import 'package:shimmer_effect/screens/bluetooth_screen.dart';
 import 'package:shimmer_effect/screens/charts_screen.dart';
 import 'package:shimmer_effect/screens/circular_progress_screen.dart';
+import 'package:shimmer_effect/screens/clock_screen.dart';
 import 'package:shimmer_effect/screens/cp_background_screen.dart';
 import 'package:shimmer_effect/screens/custom_painter_screen.dart';
 import 'package:shimmer_effect/screens/drawing_screen.dart';
@@ -364,7 +366,23 @@ class _HomeScreenState extends State<HomeScreen> {
                               MaterialPageRoute(
                                   builder: (context) => const IosHomeScreen()));
                         },
-                        child: const Text("Ios Design"))
+                        child: const Text("Ios Design")),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => BluetoothScreen()));
+                        },
+                        child: const Text("Bluetooth Printer")),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ClockScreen()));
+                        },
+                        child: const Text("Clock Screen")),
                   ],
                   // ),
                 ),
