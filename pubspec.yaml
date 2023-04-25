@@ -59,6 +59,8 @@ dependencies:
   flutter_screenutil: ^5.7.0
   intl: ^0.18.1
   bluetooth_print: ^4.3.0
+  analog_clock: ^0.1.1
+
 
 
 dev_dependencies:

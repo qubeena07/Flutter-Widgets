@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:shimmer_effect/widgets/clock_painter.dart';
 
@@ -10,7 +13,20 @@ class ClockScreen extends StatefulWidget {
 
 class _ClockScreenState extends State<ClockScreen> {
   @override
+  void initState() {
+    super.initState();
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {});
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Timer.periodic(const Duration(seconds: 1), (timer) {
+        setState(() {});
+      });
+    });
     return Container(
       color: Colors.white,
       width: double.infinity,
@@ -60,10 +76,16 @@ class _ClockScreenState extends State<ClockScreen> {
                       offset: Offset(-5, -02)),
                 ]),
           ),
-          Container(
-            constraints: const BoxConstraints.expand(),
-            child: CustomPaint(
-              painter: ClockPainter(),
+          Transform.rotate(
+            angle: pi / 2,
+            child: Container(
+              width: 300,
+              height: 300,
+              constraints: const BoxConstraints.expand(),
+              child: CustomPaint(
+                painter: ClockPainter(),
+                child: Container(),
+              ),
             ),
           )
         ],

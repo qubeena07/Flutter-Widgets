@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:shimmer_effect/repo/demo_screen.dart';
 
 import 'package:shimmer_effect/repo/network_api.dart';
+import 'package:shimmer_effect/screens/analog_clock_screen.dart';
 import 'package:shimmer_effect/screens/animated_text_screen.dart';
 import 'package:shimmer_effect/screens/bluetooth_screen.dart';
 import 'package:shimmer_effect/screens/charts_screen.dart';
@@ -14,6 +15,7 @@ import 'package:shimmer_effect/screens/clock_screen.dart';
 import 'package:shimmer_effect/screens/cp_background_screen.dart';
 import 'package:shimmer_effect/screens/custom_painter_screen.dart';
 import 'package:shimmer_effect/screens/drawing_screen.dart';
+import 'package:shimmer_effect/screens/flutter_analog_clock.dart';
 import 'package:shimmer_effect/screens/flutter_web_screen.dart';
 import 'package:shimmer_effect/screens/hero_screen.dart';
 import 'package:shimmer_effect/screens/in_app_update_screen.dart';
@@ -380,9 +382,28 @@ class _HomeScreenState extends State<HomeScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const ClockScreen()));
+                                  builder: (context) => const ClockScreen()
+                                  // const FlutterAnalogClock(
+                                  //   width: 300,
+                                  //   height: 300,
+                                  // )
+                                  ));
                         },
                         child: const Text("Clock Screen")),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const AnalogClockScreen()
+                                  // const FlutterAnalogClock(
+                                  //   width: 300,
+                                  //   height: 300,
+                                  // )
+                                  ));
+                        },
+                        child: const Text("Analog Clock Package")),
                   ],
                   // ),
                 ),
