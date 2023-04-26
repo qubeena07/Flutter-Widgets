@@ -8,6 +8,7 @@ import 'package:shimmer_effect/repo/demo_screen.dart';
 import 'package:shimmer_effect/repo/network_api.dart';
 import 'package:shimmer_effect/screens/analog_clock_screen.dart';
 import 'package:shimmer_effect/screens/animated_text_screen.dart';
+import 'package:shimmer_effect/screens/barcode_generator_screen.dart';
 import 'package:shimmer_effect/screens/bluetooth_screen.dart';
 import 'package:shimmer_effect/screens/charts_screen.dart';
 import 'package:shimmer_effect/screens/circular_progress_screen.dart';
@@ -15,7 +16,6 @@ import 'package:shimmer_effect/screens/clock_screen.dart';
 import 'package:shimmer_effect/screens/cp_background_screen.dart';
 import 'package:shimmer_effect/screens/custom_painter_screen.dart';
 import 'package:shimmer_effect/screens/drawing_screen.dart';
-import 'package:shimmer_effect/screens/flutter_analog_clock.dart';
 import 'package:shimmer_effect/screens/flutter_web_screen.dart';
 import 'package:shimmer_effect/screens/hero_screen.dart';
 import 'package:shimmer_effect/screens/in_app_update_screen.dart';
@@ -25,10 +25,12 @@ import 'package:shimmer_effect/screens/lazy_loading_screen.dart';
 import 'package:shimmer_effect/screens/list_view_animation_screen.dart';
 import 'package:shimmer_effect/screens/location_screen.dart';
 import 'package:shimmer_effect/screens/location_tracking_screen.dart';
+import 'package:shimmer_effect/screens/login_page.dart';
 import 'package:shimmer_effect/screens/product_screen.dart';
 import 'package:shimmer_effect/screens/rive_animation.dart';
 import 'package:shimmer_effect/screens/rotation_animation_screen.dart';
 import 'package:shimmer_effect/screens/speech_to_text.dart';
+import 'package:shimmer_effect/screens/url_launcher_screen.dart';
 import 'package:shimmer_effect/screens/wave_custom_painter_screen.dart';
 import 'package:shimmer_effect/widgets/download_button.dart';
 
@@ -404,6 +406,33 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ));
                         },
                         child: const Text("Analog Clock Package")),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginPage()));
+                        },
+                        child: const Text("FlutterGPT")),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const BarcodeGeneratorScreen()));
+                        },
+                        child: const Text("Barcode Generator")),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const EmailSender()
+                                  //  UrlLauncherScreen()
+                                  ));
+                        },
+                        child: const Text("URL Launcher")),
                   ],
                   // ),
                 ),
