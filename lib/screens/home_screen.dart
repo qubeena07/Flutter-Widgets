@@ -8,6 +8,7 @@ import 'package:shimmer_effect/repo/demo_screen.dart';
 import 'package:shimmer_effect/repo/network_api.dart';
 import 'package:shimmer_effect/screens/analog_clock_screen.dart';
 import 'package:shimmer_effect/screens/animated_text_screen.dart';
+import 'package:shimmer_effect/screens/background_rive_screen.dart';
 import 'package:shimmer_effect/screens/barcode_generator_screen.dart';
 import 'package:shimmer_effect/screens/bluetooth_screen.dart';
 import 'package:shimmer_effect/screens/charts_screen.dart';
@@ -25,7 +26,7 @@ import 'package:shimmer_effect/screens/lazy_loading_screen.dart';
 import 'package:shimmer_effect/screens/list_view_animation_screen.dart';
 import 'package:shimmer_effect/screens/location_screen.dart';
 import 'package:shimmer_effect/screens/location_tracking_screen.dart';
-import 'package:shimmer_effect/screens/login_page.dart';
+import 'package:shimmer_effect/screens/pdf/invoice_page.dart';
 import 'package:shimmer_effect/screens/product_screen.dart';
 import 'package:shimmer_effect/screens/rive_animation.dart';
 import 'package:shimmer_effect/screens/rotation_animation_screen.dart';
@@ -33,8 +34,7 @@ import 'package:shimmer_effect/screens/speech_to_text.dart';
 import 'package:shimmer_effect/screens/url_launcher_screen.dart';
 import 'package:shimmer_effect/screens/wave_custom_painter_screen.dart';
 import 'package:shimmer_effect/widgets/download_button.dart';
-
-import 'background_rive_screen.dart';
+import 'package:shimmer_effect/widgets/home_card_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -76,369 +76,384 @@ class _HomeScreenState extends State<HomeScreen> {
       child: SafeArea(
         child: Scaffold(
           body: Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [
-              Colors.blue.withOpacity(0.4),
-              Colors.green.withOpacity(0.5),
-              Colors.deepPurple.withOpacity(0.6),
-            ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
-            child: SingleChildScrollView(
+              height: double.infinity,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: [
+                const Color.fromARGB(255, 18, 144, 248).withOpacity(0.4),
+                const Color.fromARGB(255, 66, 239, 72).withOpacity(0.5),
+                const Color.fromARGB(255, 131, 73, 231).withOpacity(0.6),
+              ], begin: Alignment.topLeft, end: Alignment.bottomRight)),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                // child: RefreshIndicator(
-                //   color: Colors.green,
-                //   onRefresh: () async {
-                //     await Future.delayed(const Duration(seconds: 10));
-                //   },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ShakeWidget(
-                      shakeConstant: ShakeChunkConstant(),
-                      autoPlay: autoPlay,
-                      child: ElevatedButton.icon(
-                          onLongPress: () {
+                child: RefreshIndicator(
+                  color: Colors.green,
+                  onRefresh: () async {
+                    await Future.delayed(const Duration(seconds: 10));
+                  },
+                  child: GridView.count(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 6.0,
+                    mainAxisSpacing: 10.0,
+                    children: [
+                      ShakeWidget(
+                        shakeConstant: ShakeChunkConstant(),
+                        autoPlay: autoPlay,
+                        child: HomeCardWidget(
+                          onLongTap: () {
                             setState(() {
                               autoPlay = !autoPlay;
                             });
                           },
-                          onPressed: () {
-                            // log(productModel.toString(), name: "product model");
-
+                          title: "Shimmer",
+                          onTap: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => const ProductScreen(),
                                 ));
                           },
-                          icon: const Icon(Icons.done),
-                          label: const Text("Shimmer")),
-                    ),
-                    ShakeWidget(
-                      shakeConstant: ShakeLittleConstant2(),
-                      autoPlay: autoPlay1,
-                      child: ElevatedButton.icon(
-                          onLongPress: () {
-                            setState(() {
-                              autoPlay1 = !autoPlay1;
-                            });
-                          },
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      const CustomPainterScreen(),
-                                ));
-                            // log(productModel.toString(), name: "product model");
-                          },
-                          icon: const Icon(Icons.draw),
-                          label: const Text("Custom painter")),
-                    ),
-                    ElevatedButton.icon(
-                        onLongPress: () {
-                          setState(() {
-                            autoPlay1 = !autoPlay1;
-                          });
-                        },
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const CpBackgroundScreen(),
-                              ));
-                          // log(productModel.toString(), name: "product model");
-                        },
-                        icon: const Icon(Icons.piano),
-                        label: const Text("Custom painter Background")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const WaveCustomPainterScreen(),
-                              ));
-                        },
-                        child: const Text("Wave Custom Painter")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const CircularProgressScreen(),
-                              ));
-                        },
-                        child: const Text("Animated Circular Progress")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const SpeechTpTextScreen(),
-                              ));
-                        },
-                        child: const Text("Speech to text")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const RiveAnimationScreen(),
-                              ));
-                        },
-                        child: const Text("Rive Animation")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const BackgroundRiveScreen(),
-                              ));
-                        },
-                        child: const Text("Rive Animation- Background")),
-                    // ElevatedButton(
-                    //   child: const Text("Request permission"),
-                    //   onPressed: () async {
-                    //     final perm = await html.window.navigator.permissions
-                    //         ?.query({"name": "camera"});
-                    //     if (perm?.state == "denied") {
-                    //       // Scaffold.of(context).
-                    //       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    //         content: Text("Oops! Camera access denied!"),
-                    //         backgroundColor: Colors.orangeAccent,
-                    //       ));
-                    //       return;
-                    //     }
-                    //     final stream =
-                    //         await html.window.navigator.getUserMedia(video: true);
-                    //     // ...
-                    //   },
-                    // ),
-                    ElevatedButton(
-                      child: const Text("Internet Checker"),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const InternetCheckerScreen(),
-                            ));
-                      },
-                    ),
-                    ElevatedButton(
-                      child: const Text("Location"),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const LocationScreen(),
-                            ));
-                      },
-                    ),
-                    ElevatedButton(
-                      child: const Text("Animated Text Kit"),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const AnimatedTextScreen(),
-                            ));
-                      },
-                    ),
-                    ElevatedButton(
-                      child: const Text("Live Location Tracking"),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  const LocationTrackingScreen(),
-                            ));
-                      },
-                    ),
-                    ElevatedButton(
-                      child: const Text("Demo Screen"),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const DemoScreen(),
-                            ));
-                      },
-                    ),
-                    ElevatedButton(
-                      child: const Text("Flutter Web"),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const FlutterWebScreen(),
-                            ));
-                      },
-                    ),
-
-                    Hero(
-                        tag: "DemoTag",
-                        child: GestureDetector(
+                          iconData: Icons.done,
+                        ),
+                      ),
+                      ShakeWidget(
+                        shakeConstant: ShakeLittleConstant2(),
+                        autoPlay: autoPlay1,
+                        child: HomeCardWidget(
+                            title: "Custom Painter",
+                            iconData: Icons.draw,
+                            onLongTap: () {
+                              setState(() {
+                                autoPlay1 = !autoPlay1;
+                              });
+                            },
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const CustomPainterScreen(),
+                                  ));
+                            }),
+                      ),
+                      HomeCardWidget(
+                          title: "Custom Painter Background",
+                          iconData: Icons.piano,
                           onTap: () {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const HeroScreen(),
+                                  builder: (context) =>
+                                      const CpBackgroundScreen(),
                                 ));
-                          },
-                          child: const Icon(
-                            Icons.add,
-                            size: 40,
-                          ),
-                        )),
-                    ElevatedButton(
-                      child: const Text("Lazy loading"),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const LazyLoadingScreen(),
-                            ));
-                      },
-                    ),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ChartScreen()));
-                        },
-                        child: const Text("Flutter charts")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
+                          }),
+                      HomeCardWidget(
+                          title: "Wave custom painter",
+                          iconData: Icons.waves,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
                                   builder: (context) =>
-                                      const InAppUpdateScreen()));
-                        },
-                        child: const Text("In App Update")),
-
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
+                                      const WaveCustomPainterScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Animated circular progess",
+                          iconData: Icons.blur_circular,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
                                   builder: (context) =>
-                                      const ListViewAnimationScreen()));
-                        },
-                        child: const Text("List View Animaton")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
+                                      const CircularProgressScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Speech to text",
+                          iconData: Icons.speaker,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
                                   builder: (context) =>
-                                      const RotationAnimationScreen()));
-                        },
-                        child: const Text("Rotate Animaton")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const DrawingScreen()));
-                        },
-                        child: const Text("Drawing")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
+                                      const SpeechTpTextScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Rive Animation",
+                          iconData: Icons.animation,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
                                   builder: (context) =>
-                                      const ExampleCupertinoDownloadButton()));
-                        },
-                        child: const Text("Download button")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const IosHomeScreen()));
-                        },
-                        child: const Text("Ios Design")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => BluetoothScreen()));
-                        },
-                        child: const Text("Bluetooth Printer")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ClockScreen()
-                                  // const FlutterAnalogClock(
-                                  //   width: 300,
-                                  //   height: 300,
-                                  // )
+                                      const RiveAnimationScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Rive Animation Background",
+                          iconData: Icons.auto_fix_normal_sharp,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const BackgroundRiveScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Internet Checker",
+                          iconData: Icons.wifi,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const InternetCheckerScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Your Location",
+                          iconData: Icons.location_history,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const LocationScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          iconData: Icons.text_fields_sharp,
+                          title: "Animated Text",
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const AnimatedTextScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Live Location Tracking",
+                          iconData: Icons.track_changes,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const LocationTrackingScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Custom Painter Demo",
+                          iconData: Icons.draw_sharp,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const DemoScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Flutter web screen",
+                          iconData: Icons.web,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const FlutterWebScreen(),
+                                ));
+                          }),
+                      Hero(
+                        tag: "DemoTag",
+                        child: HomeCardWidget(
+                            title: "Hero ",
+                            iconData: Icons.add,
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const HeroScreen(),
                                   ));
-                        },
-                        child: const Text("Clock Screen")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
+                            }),
+                      ),
+                      HomeCardWidget(
+                          title: "Lazy Loading Screen",
+                          iconData: Icons.refresh,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
                                   builder: (context) =>
-                                      const AnalogClockScreen()
-                                  // const FlutterAnalogClock(
-                                  //   width: 300,
-                                  //   height: 300,
-                                  // )
-                                  ));
-                        },
-                        child: const Text("Analog Clock Package")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginPage()));
-                        },
-                        child: const Text("FlutterGPT")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
+                                      const LazyLoadingScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Charts Screen",
+                          iconData: Icons.pie_chart,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const ChartScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "In app update",
+                          iconData: Icons.update,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
                                   builder: (context) =>
-                                      const BarcodeGeneratorScreen()));
-                        },
-                        child: const Text("Barcode Generator")),
-                    ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const EmailSender()
-                                  //  UrlLauncherScreen()
-                                  ));
-                        },
-                        child: const Text("URL Launcher")),
-                  ],
-                  // ),
+                                      const InAppUpdateScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "List View Animation",
+                          iconData: Icons.list,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ListViewAnimationScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Rotation Animation Screen",
+                          iconData: Icons.rotate_90_degrees_ccw,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const RotationAnimationScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Drawing screen",
+                          iconData: Icons.draw_outlined,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const DrawingScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Cupertino Download",
+                          iconData: Icons.download,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const ExampleCupertinoDownloadButton(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "IoS Design",
+                          iconData: Icons.home,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const IosHomeScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Bluetooth Printer",
+                          iconData: Icons.bluetooth,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => BluetoothScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Custom Clock",
+                          iconData: Icons.punch_clock,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const ClockScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Analog Clock",
+                          iconData: Icons.lock_clock,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const AnalogClockScreen()));
+                          }),
+                      HomeCardWidget(
+                          title: "Barcode Generator",
+                          iconData: Icons.barcode_reader,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const BarcodeGeneratorScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Url Launcher",
+                          iconData: Icons.email,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const UrlLauncherScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "PDF Generator and Viewer",
+                          iconData: Icons.picture_as_pdf,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => InvoicePage(),
+                                ));
+                          }),
+                    ],
+                  ),
                 ),
+              )
+
+              //         // ElevatedButton(
+              //         //   child: const Text("Request permission"),
+              //         //   onPressed: () async {
+              //         //     final perm = await html.window.navigator.permissions
+              //         //         ?.query({"name": "camera"});
+              //         //     if (perm?.state == "denied") {
+              //         //       // Scaffold.of(context).
+              //         //       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              //         //         content: Text("Oops! Camera access denied!"),
+              //         //         backgroundColor: Colors.orangeAccent,
+              //         //       ));
+              //         //       return;
+              //         //     }
+              //         //     final stream =
+              //         //         await html.window.navigator.getUserMedia(video: true);
+              //         //     // ...
+              //         //   },
+              //         // ),
+
+              //
+              //
+
               ),
-            ),
-          ),
         ),
       ),
     );
