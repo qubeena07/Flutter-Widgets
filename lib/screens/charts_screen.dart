@@ -23,6 +23,16 @@ class _ChartScreenState extends State<ChartScreen> {
     ChartDataLine(2025, 23, Colors.cyanAccent),
     ChartDataLine(2030, 35, const Color.fromRGBO(228, 0, 124, 1))
   ];
+  final List<ChartData1> chartData1 = [
+    ChartData1('China', -20, 10),
+    ChartData1('USA', -30, 11),
+    ChartData1('UK', -6, 30),
+    ChartData1(
+      'Brazil',
+      -18,
+      16,
+    )
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,7 +80,46 @@ class _ChartScreenState extends State<ChartScreen> {
                   pointColorMapper: (ChartDataLine data, _) => data.color,
                   xValueMapper: (ChartDataLine data, _) => data.x,
                   yValueMapper: (ChartDataLine data, _) => data.y)
-            ])
+            ]),
+
+            // SfCartesianChart(series: <ChartSeries>[
+            //   StackedColumnSeries<ChartData, String>(
+            //       dataSource: chartData,
+            //       pointColorMapper: (ChartData data, _) => data.color,
+            //       xValueMapper: (ChartData data, _) => data.x,
+            //       yValueMapper: (ChartData data, _) => data.y),
+            //   StackedColumnSeries<ChartData, String>(
+            //       pointColorMapper: (ChartData data, _) => data.color,
+            //       dataSource: chartData,
+            //       xValueMapper: (ChartData data, _) => data.x,
+            //       yValueMapper: (ChartData data, _) => data.y),
+            // ])
+
+            SfCartesianChart(
+                primaryXAxis: CategoryAxis(desiredIntervals: 50),
+                // primaryXAxis: NumericAxis(maximumLabelWidth: 90),
+                series: <ChartSeries>[
+                  StackedColumnSeries<ChartData1, String>(
+                      dataSource: chartData1,
+                      color: Colors.red,
+                      xValueMapper: (ChartData1 data, _) => data.x,
+                      yValueMapper: (ChartData1 data, _) => data.y1),
+                  StackedColumnSeries<ChartData1, String>(
+                      dataSource: chartData1,
+                      color: Colors.blue,
+                      xValueMapper: (ChartData1 data, _) => data.x,
+                      yValueMapper: (ChartData1 data, _) => data.y2),
+                  //  StackedColumnSeries<ChartData,String>(
+                  //     dataSource: chartData,
+                  //     xValueMapper: (ChartData data, _) => data.x,
+                  //     yValueMapper: (ChartData data, _) => data.y3
+                  // ),
+                  // StackedColumnSeries<ChartData, String>(
+                  //     dataSource: chartData,
+                  //     xValueMapper: (ChartData data, _) => data.x,
+                  //     yValueMapper: (ChartData data, _) => data.y4
+                  // )
+                ])
           ],
         ),
       ),
@@ -90,4 +139,11 @@ class ChartDataLine {
   final int x;
   final double y;
   final Color color;
+}
+
+class ChartData1 {
+  ChartData1(this.x, this.y1, this.y2);
+  final String x;
+  final int y1;
+  final int y2;
 }
