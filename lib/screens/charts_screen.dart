@@ -24,11 +24,11 @@ class _ChartScreenState extends State<ChartScreen> {
     ChartDataLine(2030, 35, const Color.fromRGBO(228, 0, 124, 1))
   ];
   final List<ChartData1> chartData1 = [
-    ChartData1('China', -20, 10),
-    ChartData1('USA', -30, 11),
-    ChartData1('UK', -6, 30),
+    ChartData1('Jan', -20, 10),
+    ChartData1('Feb', -30, 11),
+    ChartData1('Mar', -6, 30),
     ChartData1(
-      'Brazil',
+      'Apr',
       -18,
       16,
     )
@@ -109,16 +109,6 @@ class _ChartScreenState extends State<ChartScreen> {
                       color: Colors.blue,
                       xValueMapper: (ChartData1 data, _) => data.x,
                       yValueMapper: (ChartData1 data, _) => data.y2),
-                  //  StackedColumnSeries<ChartData,String>(
-                  //     dataSource: chartData,
-                  //     xValueMapper: (ChartData data, _) => data.x,
-                  //     yValueMapper: (ChartData data, _) => data.y3
-                  // ),
-                  // StackedColumnSeries<ChartData, String>(
-                  //     dataSource: chartData,
-                  //     xValueMapper: (ChartData data, _) => data.x,
-                  //     yValueMapper: (ChartData data, _) => data.y4
-                  // )
                 ])
           ],
         ),

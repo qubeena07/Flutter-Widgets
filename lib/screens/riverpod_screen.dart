@@ -39,10 +39,12 @@ class _RiverpodScreenState extends ConsumerState<RiverpodScreen> {
   Widget build(BuildContext context) {
     return Scaffold(body: Consumer(builder: (context, ref, _) {
       return response?.products != null
-          ? ListView.builder(itemBuilder: (context, index) {
-              return ListTile(
-                  title: Text(response!.products![index].title.toString()));
-            })
+          ? ListView.builder(
+              itemCount: response?.products?.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                    title: Text(response!.products![index].title.toString()));
+              })
           : const Center(child: CircularProgressIndicator());
     }));
   }
