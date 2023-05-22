@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_shake_animated/flutter_shake_animated.dart';
 import 'package:shimmer_effect/repo/demo_screen.dart';
+import 'package:shimmer_effect/screens/aegis_widget.dart';
 
 import 'package:shimmer_effect/screens/analog_clock_screen.dart';
 import 'package:shimmer_effect/screens/animated_text_screen.dart';
@@ -14,6 +15,7 @@ import 'package:shimmer_effect/screens/circular_progress_screen.dart';
 import 'package:shimmer_effect/screens/clock_screen.dart';
 import 'package:shimmer_effect/screens/cp_background_screen.dart';
 import 'package:shimmer_effect/screens/custom_painter_screen.dart';
+import 'package:shimmer_effect/screens/draggable_screen.dart';
 import 'package:shimmer_effect/screens/drawing_screen.dart';
 import 'package:shimmer_effect/screens/flutter_web_screen.dart';
 import 'package:shimmer_effect/screens/hero_screen.dart';
@@ -25,10 +27,13 @@ import 'package:shimmer_effect/screens/list_view_animation_screen.dart';
 import 'package:shimmer_effect/screens/location_screen.dart';
 import 'package:shimmer_effect/screens/location_tracking_screen.dart';
 import 'package:shimmer_effect/screens/pdf/invoice_page.dart';
+import 'package:shimmer_effect/screens/pos_screen.dart';
 import 'package:shimmer_effect/screens/rive_animation.dart';
+import 'package:shimmer_effect/screens/riverpod_family_screen.dart';
 import 'package:shimmer_effect/screens/riverpod_screen.dart';
 
 import 'package:shimmer_effect/screens/rotation_animation_screen.dart';
+import 'package:shimmer_effect/screens/smartphone_screen.dart';
 import 'package:shimmer_effect/screens/speech_to_text.dart';
 import 'package:shimmer_effect/screens/url_launcher_screen.dart';
 import 'package:shimmer_effect/screens/wave_custom_painter_screen.dart';
@@ -433,6 +438,58 @@ class _HomeScreenState extends State<HomeScreen> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => const RiverpodScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Riverpod Next",
+                          iconData: Icons.room_service_sharp,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const SmartphoneScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Riverpod Family",
+                          iconData: Icons.family_restroom,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const RiverpodFamilyScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Aegis Widget",
+                          iconData: Icons.hotel_rounded,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const AegisWidget(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "POS Screen",
+                          iconData: Icons.hotel_rounded,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const PosScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Draggable widget",
+                          iconData: Icons.hotel_rounded,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const DraggableScreen(),
                                 ));
                           }),
                     ],

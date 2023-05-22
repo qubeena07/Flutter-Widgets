@@ -40,7 +40,7 @@ dependencies:
   flutter_shake_animated: ^0.0.5
   speech_to_text: ^6.1.1
   rive: ^0.10.3
-  flutter_svg: ^2.0.4
+  flutter_svg: ^2.0.5
   universal_html: ^2.2.1
   snackbar: ^1.0.2
   simple_internet_checker: ^0.0.2
@@ -67,6 +67,7 @@ dependencies:
   printing: ^5.10.3
   flutter_riverpod: ^2.3.6
   dio: ^4.0.6
+  flutter_draggable_gridview: ^0.0.8
 
 
 
@@ -96,6 +97,7 @@ flutter:
   assets:
     - assets/
     - assets/RiveAssets/
+    - assets/svg/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
