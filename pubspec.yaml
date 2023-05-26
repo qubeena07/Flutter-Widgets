@@ -68,6 +68,7 @@ dependencies:
   flutter_riverpod: ^2.3.6
   dio: ^4.0.6
   flutter_draggable_gridview: ^0.0.8
+  responsive_framework: ^1.0.0
 
 
 

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:shimmer_effect/screens/home_screen.dart';
 import 'package:simple_internet_checker/src/screen/connectivity_screen.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -20,17 +21,19 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       builder: (BuildContext context, Widget? child) {
         return ConnectivityScreen(
-          // child:
-          //  MultiProvider(
-          //   providers: [
-          //     ChangeNotifierProvider(create: (_) => NetworkApi()),
-          //   ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
-            home:
-                // const FlutterWebScreen(),
-                const HomeScreen(),
+            builder: (context, child) => ResponsiveBreakpoints(
+              breakpoints: const [
+                Breakpoint(start: 0, end: 450, name: MOBILE),
+                Breakpoint(start: 451, end: 800, name: TABLET),
+                Breakpoint(start: 801, end: 1920, name: DESKTOP),
+                Breakpoint(start: 1921, end: double.infinity, name: '4K'),
+              ],
+              child: child!,
+            ),
+            home: const HomeScreen(),
             scaffoldMessengerKey: messengerKey,
           ),
           // ),
