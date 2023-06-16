@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:dio_client/dio_client.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shimmer_effect/constants.dart';
 import 'package:shimmer_effect/model/product_model.dart';
@@ -13,10 +13,10 @@ final getRiverpodProvider =
 class RiverpodController extends StateNotifier<ProductModel?> {
   RiverpodController() : super(null);
 
-  DioClient dioClient = DioClient(baseUrl: baseUrl);
+  Dio dioClient = Dio();
   getProducts() async {
     try {
-      final response = await dioClient.getRequest(path: '/products');
+      final response = await dioClient.get("$baseUrl/products");
       if (response.statusCode! >= 200 && response.statusCode! < 300) {
         if (response.data != null) {
           state = ProductModel.fromJson(response.data);

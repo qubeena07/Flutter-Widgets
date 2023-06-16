@@ -1,16 +1,21 @@
 import 'dart:developer';
 
-import 'package:dio_client/dio_client.dart';
+import 'package:dio/dio.dart';
+
 import 'package:shimmer_effect/constants.dart';
 import 'package:shimmer_effect/model/product_id_model.dart';
 import 'package:shimmer_effect/model/smartphone_model.dart';
 
 class SmartphoneRepo {
   // Future<List<String>?>
-  DioClient dioClient = DioClient(baseUrl: baseUrl);
+  // DioClient dioClient = DioClient(baseUrl: baseUrl);
+  Dio dioClient = Dio();
+
   fetchAllProduct() async {
     final response =
-        await dioClient.getRequest(path: '/products/category/smartphones');
+        await dioClient.get("$baseUrl/products/category/smartphones");
+    // await dioClient.getRequest(path: '/products/category/smartphones');
+
     if (response.statusCode! >= 200 && response.statusCode! < 300) {
       if (response.data != null) {
         final data = SmartphoneModel.fromJson(response.data);
@@ -23,7 +28,9 @@ class SmartphoneRepo {
   }
 
   getProductById(int id) async {
-    final productResponse = await dioClient.getRequest(path: '/products/$id');
+    final productResponse = await dioClient.get("$baseUrl/products/$id");
+    // final productResponse = await dioClient.getRequest(path: '/products/$id');
+
     if (productResponse.statusCode! >= 200 &&
         productResponse.statusCode! < 300) {
       if (productResponse.data != null) {

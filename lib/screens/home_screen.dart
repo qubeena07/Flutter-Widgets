@@ -9,6 +9,7 @@ import 'package:shimmer_effect/screens/analog_clock_screen.dart';
 import 'package:shimmer_effect/screens/animated_text_screen.dart';
 import 'package:shimmer_effect/screens/background_rive_screen.dart';
 import 'package:shimmer_effect/screens/barcode_generator_screen.dart';
+import 'package:shimmer_effect/screens/barcode_scanner.dart';
 import 'package:shimmer_effect/screens/bluetooth_screen.dart';
 import 'package:shimmer_effect/screens/charts_screen.dart';
 import 'package:shimmer_effect/screens/circular_progress_screen.dart';
@@ -26,6 +27,7 @@ import 'package:shimmer_effect/screens/lazy_loading_screen.dart';
 import 'package:shimmer_effect/screens/list_view_animation_screen.dart';
 import 'package:shimmer_effect/screens/location_screen.dart';
 import 'package:shimmer_effect/screens/location_tracking_screen.dart';
+import 'package:shimmer_effect/screens/my_pay_screen.dart';
 import 'package:shimmer_effect/screens/pdf/invoice_page.dart';
 import 'package:shimmer_effect/screens/pos_screen.dart';
 import 'package:shimmer_effect/screens/rive_animation.dart';
@@ -490,6 +492,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => const DraggableScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Barcode Scanner",
+                          iconData: Icons.document_scanner_outlined,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const BarcodeScanner(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "My Pay Integration",
+                          iconData: Icons.document_scanner_outlined,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const MyPayScreen(),
                                 ));
                           }),
                     ],

@@ -1,17 +1,17 @@
 import 'dart:developer';
 
-import 'package:dio_client/dio_client.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer_effect/constants.dart';
 import 'package:shimmer_effect/model/product_model.dart';
 
 class NetworkApi extends ChangeNotifier {
-  DioClient dioClient = DioClient(baseUrl: baseUrl);
+  Dio dioClient = Dio();
 
   late final Object getProductList;
   Future<Object> getProduct() async {
     try {
-      final response = await dioClient.getRequest(path: '/products');
+      final response = await dioClient.get("$baseUrl/products");
       if (response.statusCode == 200) {
         getProductList = ProductModel.fromJson(response.data);
       }
