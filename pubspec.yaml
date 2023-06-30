@@ -63,7 +63,6 @@ dependencies:
   barcode_widget: ^2.0.3
   flutter_email_sender: ^5.2.0
   image_picker: ^0.8.7+4
-  pdf: ^3.10.1
   printing: ^5.10.3
   flutter_riverpod: ^2.3.6
   dio: ^5.1.2
@@ -71,6 +70,7 @@ dependencies:
   responsive_framework: ^1.0.0
   flutter_barcode_scanner: ^2.0.0
   mypay_flutter: ^1.0.1
+  pdf: ^3.10.1
 
 
 

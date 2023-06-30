@@ -11,6 +11,7 @@ Future<Uint8List> makePdf(Invoice invoice) async {
       (await rootBundle.load('assets/star1.jpeg')).buffer.asUint8List());
   pdf.addPage(
     Page(
+      // pageFormat: const PdfPageFormat(1000, 1600),
       build: (context) {
         return Column(
           children: [

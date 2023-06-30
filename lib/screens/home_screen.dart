@@ -37,6 +37,7 @@ import 'package:shimmer_effect/screens/riverpod_screen.dart';
 import 'package:shimmer_effect/screens/rotation_animation_screen.dart';
 import 'package:shimmer_effect/screens/smartphone_screen.dart';
 import 'package:shimmer_effect/screens/speech_to_text.dart';
+import 'package:shimmer_effect/screens/tic_tac_toe_screen.dart';
 import 'package:shimmer_effect/screens/url_launcher_screen.dart';
 import 'package:shimmer_effect/screens/wave_custom_painter_screen.dart';
 import 'package:shimmer_effect/widgets/download_button.dart';
@@ -512,6 +513,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => const MyPayScreen(),
+                                ));
+                          }),
+                      HomeCardWidget(
+                          title: "Tic Tac Toe",
+                          iconData: Icons.disc_full_sharp,
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => TicTacToeScreen(),
                                 ));
                           }),
                     ],
