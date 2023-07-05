@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -27,6 +28,7 @@ import 'package:shimmer_effect/screens/lazy_loading_screen.dart';
 import 'package:shimmer_effect/screens/list_view_animation_screen.dart';
 import 'package:shimmer_effect/screens/location_screen.dart';
 import 'package:shimmer_effect/screens/location_tracking_screen.dart';
+import 'package:shimmer_effect/screens/logged_page.dart';
 import 'package:shimmer_effect/screens/my_pay_screen.dart';
 import 'package:shimmer_effect/screens/pdf/invoice_page.dart';
 import 'package:shimmer_effect/screens/pos_screen.dart';
@@ -42,6 +44,8 @@ import 'package:shimmer_effect/screens/url_launcher_screen.dart';
 import 'package:shimmer_effect/screens/wave_custom_painter_screen.dart';
 import 'package:shimmer_effect/widgets/download_button.dart';
 import 'package:shimmer_effect/widgets/home_card_widget.dart';
+
+import '../api/google_signin_api.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -73,6 +77,16 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
+  }
+
+  Future signIn() async {
+    final user = await GoogleSignInApi.login();
+    log(user!.authentication.toString(), name: "authentication");
+    log(user.serverAuthCode.toString(), name: "authcode");
+    Navigator.of(context).pushReplacement(MaterialPageRoute(
+        builder: (context) => LoggedPage(
+              user: user,
+            )));
   }
 
   @override
@@ -522,9 +536,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => TicTacToeScreen(),
+                                  builder: (context) => const TicTacToeScreen(),
                                 ));
                           }),
+                      HomeCardWidget(
+                          title: "SignUp with Google",
+                          iconData: Icons.chrome_reader_mode,
+                          onTap: signIn),
                     ],
                   ),
                 ),

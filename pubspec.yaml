@@ -71,6 +71,8 @@ dependencies:
   flutter_barcode_scanner: ^2.0.0
   mypay_flutter: ^1.0.1
   pdf: ^3.10.1
+  google_sign_in: ^6.1.4
+
 
 
 
