@@ -80,9 +80,11 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future signIn() async {
-    final user = await GoogleSignInApi.login();
+    // var user = await GoogleSignInApi.login();
+    final user = await GoogleSignInApi().login();
     log(user!.authentication.toString(), name: "authentication");
     log(user.serverAuthCode.toString(), name: "authcode");
+
     Navigator.of(context).pushReplacement(MaterialPageRoute(
         builder: (context) => LoggedPage(
               user: user,

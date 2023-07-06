@@ -39,6 +39,7 @@ class HomeCardWidget extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -50,7 +51,7 @@ class HomeCardWidget extends StatelessWidget {
                 title,
                 textAlign: TextAlign.center,
                 style:
-                    const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
               ),
             ],
           ),
